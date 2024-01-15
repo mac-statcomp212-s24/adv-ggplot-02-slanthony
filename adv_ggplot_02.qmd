@@ -1,0 +1,64 @@
+---
+title: "Advanced visualization with ggplot2"
+subtitle: "Challenge 2"
+author: "YOUR NAME"
+format: 
+  html:
+    self-contained: true
+---
+
+# Instructions
+
+**Task:** Open up the New York Times article [A Summer of Strikes](https://www.nytimes.com/interactive/2023/09/03/business/economy/strikes-union-sag-uaw.html), and scroll down to the plot titled "Union membership has fallen sharply over the past four decades (Share of the work force in a union, by industry)".
+
+Using `ggplot2` and other tools in R, recreate this plot. Note that you will need to create the data underlying the plot yourself. You can create this data in R with `tibble()`. You can also write the data in Excel or Google Sheets and export it as a CSV file.
+
+**Requirements for passing:**
+
+- Panels for "All workers", "By Sector", and "By Industry" are shown.
+- Arrows showing the change from 1983 to 2022 are shown.
+- The actual percentages in 1983 and 2022 are shown as text.
+- X-axis tick marks are at 0, 25, and 50.
+- Plot title says "Union membership has fallen sharply over the past four decades".
+- Plot subtitle says "Share of the work force in a union, by industry".
+
+**Submission:** Click the "Render" button in RStudio to knit a self-contained HTML will all images in embdeded. Commit and push changes to this file as well as the generated HTML. Create a **pull request** to submit your assignment by midnight on Monday 2/5.
+
+
+
+# Setup
+
+```{r}
+# Code for loading packages
+# And code for reading in data if using the Excel/Google Sheets-->CSV approach
+```
+
+```{r}
+# Code for generating the data (if using the tibble() approach)
+```
+
+
+
+
+# Visualization
+
+
+```{r}
+# Code for recreating the visualization
+# Use as many code chunks as you need to organize your work well
+```
+
+
+
+
+# AI usage
+
+If you use an AI tool (e.g., ChatGPT, Google Bard) to help with this assignment, please paste below the prompts you use and their associated output
+
+**Prompt:**
+
+**Output:**
+
+Keep in mind that the use of AI has a [huge energy cost](https://lmyint.github.io/212_spring_2024/syllabus.html#artificial-intelligence-ai-use). Please describe an energy-saving activity that you can start engaging in to offset this cost.
+
+**Energy-saving activity:** 
