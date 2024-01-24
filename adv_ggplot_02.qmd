@@ -22,7 +22,7 @@ Using `ggplot2` and other tools in R, recreate this plot. Note that you will nee
 - Plot title says "Union membership has fallen sharply over the past four decades".
 - Plot subtitle says "Share of the work force in a union, by industry".
 
-**Submission:** Click the "Render" button in RStudio to knit a self-contained HTML will all images in embdeded. Commit and push changes to this file as well as the generated HTML. Create a **pull request** to submit your assignment by midnight on Monday 2/5.
+**Submission:** Click the "Render" button in RStudio to knit a self-contained HTML with all images embedded. Commit and push changes to this file as well as the generated HTML. Push your changes to GitHub by midnight on Monday 2/5. (GitHub classroom automatically creates a pull request for receiving feedback.)
 
 
 
