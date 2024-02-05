@@ -1,7 +1,7 @@
 ---
 title: "Advanced visualization with ggplot2"
 subtitle: "Challenge 2"
-author: "YOUR NAME"
+author: "Sam Anthony"
 format: 
   html:
     self-contained: true
@@ -29,8 +29,10 @@ Using `ggplot2` and other tools in R, recreate this plot. Note that you will nee
 # Setup
 
 ```{r}
-# Code for loading packages
-# And code for reading in data if using the Excel/Google Sheets-->CSV approach
+library(tidyverse)
+Industry <- read.csv('Data/Data/Industry.csv')
+RecSector <- read.csv('Data/Data/RecSector.csv')
+AllWorkers <- read.csv('Data/Data/AllWorkers.csv')
 ```
 
 ```{r}
@@ -45,10 +47,48 @@ Using `ggplot2` and other tools in R, recreate this plot. Note that you will nee
 
 ```{r}
 # Code for recreating the visualization
-# Use as many code chunks as you need to organize your work well
+AllPlot <- ggplot(data = AllWorkers)+
+  geom_hline(aes(yintercept = All), color = "grey90", linetype = "dashed")+
+  geom_vline(xintercept = c(25, 50), color= "grey90" )+
+  geom_segment(aes(x = Union_mem_1983, y = All, xend = Union_mem_2022, yend = All), arrow = arrow(length = unit(0.08, "inches")), color = "#1C5075", lwd = 0.8) +
+  geom_text(aes(label = Union_mem_1983, x = Union_mem_1983 + 1, y = All))+
+  geom_text(aes(label = Union_mem_2022, x = Union_mem_2022 - 1, y = All))+
+  scale_x_continuous(breaks = c(0, 25, 50), limits = c(0,50), expand = expansion(0), labels = c("0%", 25, 50))+
+  theme_classic()+   
+  theme(axis.line.x = element_blank(), plot.title = element_text(face = "bold"))+
+  labs(x = '', y = '', title = "Union membership has fallen sharply over the past four decades", subtitle = "Share of the work force in a union, by industry")
+```
+
+```{r}
+IndustryPlot <- ggplot(data = Industry)+
+  geom_hline(aes(yintercept = Industry), color = "grey90", linetype = "dashed")+
+  geom_vline(xintercept = c(25, 50), color= "grey90" ) +
+  geom_segment(aes(x = Union_mem_1983, y = Industry, xend = Union_mem_2022, yend = Industry), arrow = arrow(length = unit(0.08, "inches")), color = "#1C5075", lwd = 0.8) +
+  geom_text(aes(label = Union_mem_1983, x = Union_mem_1983 + 1, y = Industry)) +
+  geom_text(aes(label = Union_mem_2022, x = Union_mem_2022 - 1, y = Industry)) +
+  scale_x_continuous(breaks = c(0, 25, 50), limits = c(0,50), expand = expansion(0), labels = c("0%", 25, 50)) +
+  theme_classic() +   
+  theme(axis.line.x = element_blank(), plot.title = element_text(face = "bold")) +
+  labs(x = '', y = '', title = "BY INDUSTRY")
+```
+
+```{r}
+RecPlot <- ggplot(data = RecSector)+
+  geom_hline(aes(yintercept = Sector), color = "grey90", linetype = "dashed")+
+  geom_vline(xintercept = c(25, 50), color= "grey90" )+
+  geom_segment(aes(x = Union_mem_1983, y = Sector, xend = Union_mem_2022, yend = Sector), arrow = arrow(length = unit(0.08, "inches")), color = "#1C5075", lwd = 0.8) +
+  geom_text(aes(label = Union_mem_1983, x = Union_mem_1983 + 1, y = Sector))+
+  geom_text(aes(label = Union_mem_2022, x = Union_mem_2022 - 1, y = Sector))+
+  scale_x_continuous(breaks = c(0, 25, 50), limits = c(0,50), expand = expansion(0), labels = c("0%", 25, 50))+
+  theme_classic()+   
+  theme(axis.line.x = element_blank(), plot.title = element_text(face = "bold"))+
+  labs(x = '', y = '', title = "BY SECTOR")
 ```
 
 
+```{r}
+
+```
 
 
 # AI usage
