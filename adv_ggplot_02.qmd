@@ -64,8 +64,10 @@ IndustryPlot <- ggplot(data = Industry)+
   geom_hline(aes(yintercept = Industry), color = "grey90", linetype = "dashed")+
   geom_vline(xintercept = c(25, 50), color= "grey90" ) +
   geom_segment(aes(x = Union_mem_1983, y = Industry, xend = Union_mem_2022, yend = Industry), arrow = arrow(length = unit(0.08, "inches")), color = "#1C5075", lwd = 0.8) +
-  geom_text(aes(label = Union_mem_1983, x = Union_mem_1983 + 1, y = Industry)) +
-  geom_text(aes(label = Union_mem_2022, x = Union_mem_2022 - 1, y = Industry)) +
+  geom_text(aes(x = ifelse(`Union_mem_1983`>`Union_mem_2022`, `Union_mem_1983` +1.5, `Union_mem_2022` -1.5), y=Industry, label = `Union_mem_1983`), size = 3.5)+
+  geom_text(aes(x = ifelse(`Union_mem_1983`<`Union_mem_2022`, `Union_mem_1983` +1.5, `Union_mem_2022` -1.5), y=Industry,label = `Union_mem_2022`), size = 3.5)+
+  # geom_text(aes(label = Union_mem_1983, x = Union_mem_1983 + 1, y = Industry)) +
+  # geom_text(aes(label = Union_mem_2022, x = Union_mem_2022 - 1, y = Industry)) +
   scale_x_continuous(breaks = c(0, 25, 50), limits = c(0,50), expand = expansion(0), labels = c("0%", 25, 50)) +
   theme_classic() +   
   theme(axis.line.x = element_blank(), plot.title = element_text(face = "bold")) +
@@ -86,8 +88,10 @@ RecPlot <- ggplot(data = RecSector)+
 ```
 
 
-```{r}
+```{r, fig.width=8, fig.height=8}
+figure <- ggpubr::ggarrange(AllPlot, IndustryPlot, RecPlot, ncol = 1, nrow = 3, heights = c(1, 2.5, 2))
 
+figure
 ```
 
 
